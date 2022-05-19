@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 
 const NewsSchema = new Schema(
   {
-    description: String,
-    time: String,
-    detail: String,
-    thumbnail: String,
-    title: String,
-    location: String,
+    SortContent: String,
+    FCreateTime: String,
+    FDescription: String,
+    Image: String,
+    FName: String,
+    FLevel: Number,
   },
   {
     collection: "nb-news",
