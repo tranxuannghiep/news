@@ -4,6 +4,14 @@ const ApiError = require("../utils/ApiError");
 let Parser = require("rss-parser");
 let parser = new Parser();
 exports.getNews = catchAsync(async (req, res) => {
+  const news = await News.find();
+  res.json({ success: true, data: news });
+  if (!news.length) {
+    throw new ApiError(400, "No news");
+  }
+});
+
+exports.getNewsAll = catchAsync(async (req, res) => {
   (async () => {
     let feed = await parser.parseURL("https://vnexpress.net/rss/thoi-su.rss");
 
