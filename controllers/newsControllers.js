@@ -30,11 +30,11 @@ exports.getNewsAll = catchAsync(async (req, res) => {
     let feed = await parser.parseURL("https://tuoitre.vn/rss/thoi-su.rss");
 
     const data = feed.items.map((val) => ({
-      Title: val.title,
-      Img: getImages(val.content)[0] || null,
-      Link: val.link,
-      Description: val.contentSnippet,
-      PubDate: new Date(val.pubDate).toLocaleString("es-ar", {
+      title: val.title,
+      img: getImages(val.content)[0] || null,
+      link: val.link,
+      description: val.contentSnippet,
+      pubDate: new Date(val.pubDate).toLocaleString("es-ar", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
