@@ -27,9 +27,8 @@ function getImages(string) {
 
 exports.getNewsAll = catchAsync(async (req, res) => {
   (async () => {
-    let feed = await parser.parseURL("https://vnexpress.net/rss/thoi-su.rss");
+    let feed = await parser.parseURL("https://tuoitre.vn/rss/thoi-su.rss");
 
-    // console.log(feed);
     const data = feed.items.map((val) => ({
       Title: val.title,
       Img: getImages(val.content)[0] || null,
